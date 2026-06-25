@@ -1,0 +1,14 @@
+.git
+.github
+SmartCart-FE/node_modules
+SmartCart-FE/.next
+SmartCart-FE/out
+SmartCart-FE/dist
+SmartCart-BE/target
+SmartCart-BE/uploads
+*.log
+*.tsbuildinfo
+.env
+.env.*
+!SmartCart-BE/.env.example
+!SmartCart-FE/.env.local.example
