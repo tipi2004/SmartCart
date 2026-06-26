@@ -75,6 +75,8 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 // Cấp quyền cho Auth, Swagger VÀ đường dẫn báo lỗi của Spring Boot
                 .requestMatchers(
+                    "/",
+                    "/health",
                     "/api/auth/**",
                     "/swagger-ui.html",
                     "/swagger-ui/**",
