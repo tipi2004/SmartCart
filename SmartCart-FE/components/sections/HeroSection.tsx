@@ -21,9 +21,9 @@ export function HeroSection() {
   const { openLogin } = useAuthModalStore();
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-b from-sky-300 via-sky-100 to-white">
+    <section className="relative flex min-h-[92svh] items-center overflow-hidden bg-gradient-to-b from-sky-300 via-sky-100 to-white md:min-h-screen">
       <CloudLayer />
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 px-5 py-20 md:grid-cols-[1fr_0.9fr] md:px-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-8 px-4 pb-14 pt-28 sm:px-5 md:grid-cols-[1fr_0.9fr] md:px-8 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 34 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,10 +34,10 @@ export function HeroSection() {
             <Sparkles className="h-4 w-4 text-honey" />
             SmartCart pastel shopping
           </div>
-          <h1 className="text-5xl font-black leading-tight text-blue-950 sm:text-6xl lg:text-7xl">
+          <h1 className="text-4xl font-black leading-tight text-blue-950 sm:text-6xl lg:text-7xl">
             SmartCart Bunny
           </h1>
-          <p className="mt-5 max-w-xl text-lg leading-8 text-slate-700">
+          <p className="mt-4 max-w-xl text-base leading-7 text-slate-700 sm:mt-5 sm:text-lg sm:leading-8">
             Mua sắm nhẹ như mây trôi với giao diện dễ thương, giỏ hàng nhanh gọn và sản phẩm kết nối trực tiếp backend SmartCart.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -62,7 +62,7 @@ export function HeroSection() {
             )}
           </div>
           <motion.div
-            className="mt-9 grid gap-4 sm:grid-cols-3"
+            className="mt-7 grid gap-3 sm:mt-9 sm:grid-cols-3 sm:gap-4"
             initial="hidden"
             animate="show"
             variants={{
@@ -88,7 +88,7 @@ export function HeroSection() {
         </motion.div>
 
         <motion.div
-          className="relative mx-auto h-[300px] w-full max-w-md sm:h-[360px]"
+          className="relative mx-auto h-[240px] w-full max-w-sm sm:h-[330px] sm:max-w-md md:h-[360px]"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15, duration: 0.8 }}
@@ -99,7 +99,7 @@ export function HeroSection() {
             animate={{ y: [0, -10, 0], rotate: [-1, 1, -1] }}
             transition={{ duration: 3.4, repeat: Infinity, ease: "easeInOut" }}
           >
-            <BunnyMascot className="scale-[3.8] sm:scale-[5.35]" />
+            <BunnyMascot className="scale-[2.75] sm:scale-[4.65] md:scale-[5.35]" />
           </motion.div>
           <div className="absolute bottom-[-0.5rem] left-1/2 z-0 h-36 w-[112%] -translate-x-1/2">
             <Image src="/images/clouds/cloud-10.png" alt="" fill className="object-contain drop-shadow-2xl" />

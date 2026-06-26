@@ -89,12 +89,12 @@ export function Header({ overlay = false }: HeaderProps) {
 
   return (
     <header className={cn(overlay ? "fixed left-0 right-0 top-0" : "sticky top-0", "z-40 bg-transparent")}>
-      <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3 md:px-8">
-        <Link href="/" className="flex items-center gap-2 rounded-full bg-white px-3 py-2 shadow-soft">
+      <div className="mx-auto flex max-w-7xl flex-wrap items-center gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-3 md:px-8">
+        <Link href="/" className="flex min-w-0 items-center gap-2 rounded-full bg-white px-2.5 py-2 shadow-soft sm:px-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-full bg-skyPastel text-navySoft">
             <ShoppingBag className="h-5 w-5" />
           </span>
-          <span className="hidden text-sm font-black text-navySoft sm:block">SmartCart Bunny</span>
+          <span className="hidden max-w-36 truncate text-sm font-black text-navySoft sm:block">SmartCart Bunny</span>
         </Link>
 
         <form
@@ -221,6 +221,21 @@ export function Header({ overlay = false }: HeaderProps) {
             <UserRound className="h-5 w-5" />
           </button>
         )}
+        <form
+          className="relative order-last mt-1 w-full md:hidden"
+          onSubmit={(event) => {
+            event.preventDefault();
+            void submitSearch();
+          }}
+        >
+          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-navyMuted" />
+          <input
+            value={keyword}
+            onChange={(event) => setKeyword(event.target.value)}
+            placeholder="Tìm sản phẩm..."
+            className="h-11 w-full rounded-full border border-white bg-white/92 pl-11 pr-4 text-sm shadow-soft outline-none focus:ring-4 focus:ring-skyPastel/40"
+          />
+        </form>
       </div>
       <LoginModal open={open} onClose={closeLogin} />
       <ProfileModal />

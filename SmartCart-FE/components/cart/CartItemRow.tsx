@@ -17,7 +17,7 @@ export function CartItemRow({ item, selected, onToggle }: CartItemRowProps) {
   const { updateQuantity, removeItem } = useCartStore();
 
   return (
-    <div className="grid gap-4 border-b border-[#e8f1ff] bg-white/64 p-4 last:border-b-0 sm:grid-cols-[32px_112px_1fr_auto] sm:items-center md:p-5">
+    <div className="grid grid-cols-[28px_92px_1fr] gap-3 border-b border-[#e8f1ff] bg-white/64 p-3 last:border-b-0 sm:grid-cols-[32px_112px_1fr_auto] sm:items-center sm:gap-4 sm:p-4 md:p-5">
       <button
         type="button"
         onClick={() => onToggle(item.id)}
@@ -30,17 +30,17 @@ export function CartItemRow({ item, selected, onToggle }: CartItemRowProps) {
       >
         <Check className="h-4 w-4" />
       </button>
-      <div className="relative h-28 overflow-hidden rounded-[1.1rem] bg-white shadow-[0_12px_28px_rgba(76,107,171,0.12)]">
+      <div className="relative h-24 overflow-hidden rounded-[1.1rem] bg-white shadow-[0_12px_28px_rgba(76,107,171,0.12)] sm:h-28">
         <ProductImage src={item.productImageUrl} name={item.productName} />
       </div>
       <div className="min-w-0">
-        <p className="text-lg font-black text-[#092768]">{item.productName}</p>
+        <p className="text-base font-black text-[#092768] sm:text-lg">{item.productName}</p>
         <span className="mt-3 inline-flex rounded-full bg-[#e9d8ff] px-3 py-1 text-xs font-black text-[#7441d6]">
           SmartCart
         </span>
         <p className="mt-3 text-base font-black text-[#092768]">{formatCurrency(item.unitPrice)}</p>
       </div>
-      <div className="flex items-center justify-between gap-3 sm:justify-end">
+      <div className="col-span-3 flex flex-wrap items-center justify-between gap-3 sm:col-span-1 sm:justify-end">
         <div className="flex items-center rounded-full bg-[#f6fbff] p-1 shadow-[0_12px_26px_rgba(76,107,171,0.13)]">
           <button
             className="grid h-9 w-9 place-items-center rounded-full bg-white text-[#092768] transition hover:bg-[#eaf5ff]"
@@ -58,10 +58,10 @@ export function CartItemRow({ item, selected, onToggle }: CartItemRowProps) {
             <Plus className="h-4 w-4" />
           </button>
         </div>
-        <p className="w-28 text-right font-black text-[#092768]">{formatCurrency(item.subtotal)}</p>
+        <p className="min-w-24 text-right font-black text-[#092768]">{formatCurrency(item.subtotal)}</p>
         <button
           type="button"
-          className="grid h-12 w-12 place-items-center rounded-xl bg-[#ffd7e8] text-[#ff3d8f] transition hover:bg-[#ffc8df]"
+          className="grid h-11 w-11 place-items-center rounded-xl bg-[#ffd7e8] text-[#ff3d8f] transition hover:bg-[#ffc8df] sm:h-12 sm:w-12"
           onClick={() => removeItem(item.id)}
           aria-label="Xóa sản phẩm"
         >

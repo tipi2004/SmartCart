@@ -111,15 +111,15 @@ export function ProductDetailModal({ product, open, onClose }: ProductDetailModa
   const originalPrice = Math.round(currentProduct.basePrice * 1.2);
 
   return (
-    <div className="fixed inset-0 z-[70] grid place-items-center overflow-hidden bg-[#0f1f3d]/58 px-3 py-4 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[70] grid place-items-center overflow-hidden bg-[#0f1f3d]/58 px-2 py-3 backdrop-blur-sm sm:px-3 sm:py-4">
       <button type="button" aria-label="Đóng chi tiết sản phẩm" className="absolute inset-0 cursor-default" onClick={onClose} />
 
-      <section className="relative flex max-h-[calc(100vh-2rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.6rem] border border-white bg-[#f8fbff] p-4 text-[#092768] shadow-[0_32px_110px_rgba(23,42,86,0.42)] md:p-5">
+      <section className="relative flex max-h-[calc(100svh-1rem)] w-full max-w-5xl flex-col overflow-hidden rounded-[1.25rem] border border-white bg-[#f8fbff] p-3 text-[#092768] shadow-[0_32px_110px_rgba(23,42,86,0.42)] sm:rounded-[1.6rem] sm:p-4 md:p-5">
         <button
           type="button"
           aria-label="Đóng"
           onClick={onClose}
-          className="absolute right-4 top-4 z-20 grid h-10 w-10 place-items-center rounded-full bg-white text-[#092768] shadow-[0_12px_30px_rgba(23,42,86,0.18)] transition hover:-translate-y-0.5"
+          className="absolute right-3 top-3 z-20 grid h-9 w-9 place-items-center rounded-full bg-white text-[#092768] shadow-[0_12px_30px_rgba(23,42,86,0.18)] transition hover:-translate-y-0.5 sm:right-4 sm:top-4 sm:h-10 sm:w-10"
         >
           <X className="h-5 w-5" />
         </button>
@@ -130,9 +130,9 @@ export function ProductDetailModal({ product, open, onClose }: ProductDetailModa
           </div>
         )}
 
-        <div className="grid min-h-0 gap-5 overflow-y-auto pr-1 lg:grid-cols-[minmax(300px,0.86fr)_1fr]">
+        <div className="grid min-h-0 gap-4 overflow-y-auto pr-0 sm:pr-1 lg:grid-cols-[minmax(300px,0.86fr)_1fr] lg:gap-5">
           <div>
-            <div className="relative aspect-[4/3] max-h-[390px] overflow-hidden rounded-[1rem] bg-white shadow-[0_18px_42px_rgba(23,42,86,0.14)]">
+            <div className="relative aspect-[4/3] max-h-[260px] overflow-hidden rounded-[1rem] bg-white shadow-[0_18px_42px_rgba(23,42,86,0.14)] sm:max-h-[390px]">
               <span className="absolute left-4 top-4 z-10 rounded-full bg-white px-3 py-1.5 text-xs font-black text-[#ff5a2e] shadow-soft">🔥 Bán chạy</span>
               <ProductHeroImage src={gallery[activeImage]} name={currentProduct.name} />
               {gallery.length > 1 && (
@@ -168,11 +168,11 @@ export function ProductDetailModal({ product, open, onClose }: ProductDetailModa
           </div>
 
           <div className="flex flex-col">
-            <div className="pr-12">
+            <div className="pr-10 sm:pr-12">
               <div className="inline-flex rounded-full bg-[#eee8ff] px-3 py-1 text-xs font-black text-[#7657ff]">
                 {currentProduct.categoryName || "SmartCart"}
               </div>
-              <h2 className="mt-2 text-2xl font-black leading-tight text-[#092768]">{currentProduct.name}</h2>
+              <h2 className="mt-2 text-xl font-black leading-tight text-[#092768] sm:text-2xl">{currentProduct.name}</h2>
               <div className="mt-2 flex flex-wrap items-center gap-3 text-sm font-bold text-[#607198]">
                 <span className="inline-flex items-center gap-1 text-[#ffb020]">
                   <Star className="h-4 w-4 fill-current" /> 4.8
@@ -181,7 +181,7 @@ export function ProductDetailModal({ product, open, onClose }: ProductDetailModa
                 <span>Đã bán 523</span>
               </div>
               <div className="mt-3 flex flex-wrap items-center gap-3">
-                <span className="text-3xl font-black text-[#3567ff]">{formatCurrency(currentProduct.basePrice)}</span>
+                <span className="text-2xl font-black text-[#3567ff] sm:text-3xl">{formatCurrency(currentProduct.basePrice)}</span>
                 <span className="text-sm font-black text-[#9aa8c5] line-through">{formatCurrency(originalPrice)}</span>
                 <span className="rounded-full bg-[#ffe1e8] px-2 py-1 text-xs font-black text-[#ff4d7d]">-17%</span>
               </div>

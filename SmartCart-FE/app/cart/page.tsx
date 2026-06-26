@@ -184,15 +184,15 @@ export default function CartPage() {
   return (
     <>
       <Header overlay />
-      <main className="min-h-screen bg-[#eef8ff] px-5 pb-24 pt-32 text-[#092768] md:px-8">
-        <section className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[1fr_360px]">
+      <main className="min-h-screen bg-[#eef8ff] px-3 pb-24 pt-36 text-[#092768] sm:px-5 md:px-8 md:pt-32">
+        <section className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[minmax(0,1fr)_360px] lg:gap-8">
           <div>
             <div className="flex items-center gap-4">
-              <span className="grid h-16 w-16 place-items-center rounded-[1.25rem] bg-[#dff2ff] text-[#3567ff] shadow-[0_18px_42px_rgba(53,103,255,0.14)]">
-                <ShoppingBag className="h-8 w-8" />
+              <span className="grid h-12 w-12 place-items-center rounded-[1.25rem] bg-[#dff2ff] text-[#3567ff] shadow-[0_18px_42px_rgba(53,103,255,0.14)] sm:h-16 sm:w-16">
+                <ShoppingBag className="h-6 w-6 sm:h-8 sm:w-8" />
               </span>
               <div>
-                <h1 className="text-4xl font-black text-[#092768]">Giỏ hàng</h1>
+                <h1 className="text-3xl font-black text-[#092768] sm:text-4xl">Giỏ hàng</h1>
                 <p className="mt-1 font-bold text-[#607198]">{cart.totalItems} sản phẩm trong giỏ hàng</p>
               </div>
             </div>
@@ -233,7 +233,7 @@ export default function CartPage() {
 
                 {cart.items.length > 0 ? (
                   <div className="overflow-hidden rounded-[1.5rem] border border-white/75 bg-white/72 shadow-[0_24px_70px_rgba(72,108,176,0.15)] backdrop-blur-xl">
-                    <div className="flex items-center justify-between border-b border-[#e8f1ff] px-5 py-4">
+                    <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e8f1ff] px-4 py-4 sm:px-5">
                       <button type="button" onClick={toggleAll} className="flex items-center gap-3 font-black text-[#092768]">
                         <span
                           className={cn(
@@ -276,7 +276,7 @@ export default function CartPage() {
 
           {isLoggedIn && (
             <aside className="space-y-5 lg:sticky lg:top-28 lg:h-max">
-              <div className="rounded-[1.5rem] border border-white/75 bg-white/78 p-6 shadow-[0_24px_70px_rgba(72,108,176,0.15)] backdrop-blur-xl">
+              <div className="rounded-[1.5rem] border border-white/75 bg-white/78 p-4 shadow-[0_24px_70px_rgba(72,108,176,0.15)] backdrop-blur-xl sm:p-6">
                 <div className="flex items-center gap-3">
                   <span className="grid h-9 w-9 place-items-center rounded-xl bg-[#e7e4ff] text-[#3567ff]">
                     <ShoppingBag className="h-5 w-5" />
@@ -432,9 +432,9 @@ function ConfirmOrderModal({
 
   if (createdOrderId) {
     return (
-      <div className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto px-4 py-8">
+      <div className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto px-2 py-3 sm:px-4 sm:py-8">
         <button type="button" className="absolute inset-0 bg-[#17244f]/58 backdrop-blur-[5px]" onClick={onClose} aria-label="Đóng thông báo đặt hàng thành công" />
-        <section className="relative w-full max-w-xl rounded-[1.75rem] border border-white bg-white p-8 shadow-[0_30px_110px_rgba(20,38,84,0.34)]">
+        <section className="relative w-full max-w-xl rounded-[1.5rem] border border-white bg-white p-5 shadow-[0_30px_110px_rgba(20,38,84,0.34)] sm:rounded-[1.75rem] sm:p-8">
           <button
             type="button"
             onClick={onClose}
@@ -451,7 +451,7 @@ function ConfirmOrderModal({
                 <CheckCircle2 className="h-16 w-16 text-[#33b978]" />
               </div>
             </div>
-            <h2 className="text-4xl font-black text-[#092768]">Đặt hàng thành công</h2>
+            <h2 className="text-3xl font-black text-[#092768] sm:text-4xl">Đặt hàng thành công</h2>
             <p className="mt-3 font-bold text-[#607198]">
               Đơn hàng của bạn đã được gửi tới SmartCart. Bạn có thể theo dõi trạng thái trong mục đơn hàng.
             </p>
@@ -475,9 +475,9 @@ function ConfirmOrderModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto px-4 py-8">
+    <div className="fixed inset-0 z-[70] grid place-items-center overflow-y-auto px-2 py-3 sm:px-4 sm:py-8">
       <button type="button" className="absolute inset-0 bg-[#17244f]/58 backdrop-blur-[5px]" onClick={onClose} aria-label="Đóng xác nhận đơn hàng" />
-      <section className="relative w-full max-w-2xl rounded-[1.75rem] border border-white bg-white p-6 shadow-[0_30px_110px_rgba(20,38,84,0.34)] md:p-8">
+      <section className="relative flex max-h-[calc(100svh-1rem)] w-full max-w-2xl flex-col overflow-y-auto rounded-[1.5rem] border border-white bg-white p-4 shadow-[0_30px_110px_rgba(20,38,84,0.34)] sm:rounded-[1.75rem] sm:p-6 md:p-8">
         <button
           type="button"
           onClick={onClose}
@@ -497,7 +497,7 @@ function ConfirmOrderModal({
               </span>
             </div>
           </div>
-          <h2 className="text-4xl font-black text-[#092768]">Xác nhận đơn hàng</h2>
+          <h2 className="text-3xl font-black text-[#092768] sm:text-4xl">Xác nhận đơn hàng</h2>
           <p className="mt-3 font-bold text-[#607198]">Vui lòng kiểm tra thông tin đơn hàng trước khi thanh toán</p>
         </div>
 

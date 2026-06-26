@@ -317,10 +317,10 @@ export function ShoppingSection() {
   };
 
   return (
-    <section id="shop" className="relative min-h-screen overflow-hidden bg-[#fff8ea] px-4 py-16 sm:px-6 md:px-8">
+    <section id="shop" className="relative min-h-screen overflow-hidden bg-[#fff8ea] px-3 py-12 sm:px-6 sm:py-16 md:px-8">
       <PastelMarket />
       <motion.div
-        className="relative z-10 mx-auto w-full max-w-6xl rounded-cute border border-white/85 bg-white/88 p-4 shadow-soft backdrop-blur md:p-6"
+        className="relative z-10 mx-auto w-full max-w-6xl rounded-[1.5rem] border border-white/85 bg-white/88 p-3 shadow-soft backdrop-blur sm:rounded-cute sm:p-4 md:p-6"
         initial={{ opacity: 0, y: 70 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.01 }}
@@ -404,7 +404,7 @@ export function ShoppingSection() {
             onClear={clearAdvancedFilters}
           />
         </div>
-        <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {loading ? (
             <div className="col-span-full grid min-h-52 place-items-center rounded-[1.25rem] bg-cloud/80 shadow-button">
               <Loader2 className="h-8 w-8 animate-spin text-navySoft" />
@@ -462,7 +462,7 @@ export function ShoppingSection() {
 
       <motion.div
         aria-label="Mở chatbot SmartCart"
-        className="fixed bottom-3 left-6 z-30 hidden origin-bottom-left md:block lg:left-10"
+        className="fixed bottom-2 left-2 z-30 block origin-bottom-left sm:left-4 md:bottom-3 md:left-6 lg:left-10"
         initial={false}
         animate={{
           opacity: showChatBunny ? 1 : 0,
@@ -480,7 +480,7 @@ export function ShoppingSection() {
       >
         {chatOpen && (
           <motion.div
-            className="absolute bottom-[14.5rem] left-[5.25rem] h-[20rem] w-[22rem] max-w-[calc(100vw-7rem)]"
+            className="absolute bottom-[9.2rem] left-[2.25rem] h-[18rem] w-[19rem] max-w-[calc(100vw-3.25rem)] sm:bottom-[11rem] sm:left-[3.75rem] sm:h-[19rem] sm:w-[21rem] md:bottom-[14.5rem] md:left-[5.25rem] md:h-[20rem] md:w-[22rem] md:max-w-[calc(100vw-7rem)]"
             initial={{ opacity: 0, y: 22, scale: 0.92 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.28, ease: "easeOut" }}
@@ -517,7 +517,7 @@ export function ShoppingSection() {
                 opacity="0.35"
               />
             </svg>
-            <div className="absolute left-14 right-9 top-12 flex h-[14.5rem] flex-col">
+            <div className="absolute left-10 right-7 top-10 flex h-[12.8rem] flex-col sm:left-12 sm:right-8 sm:top-11 sm:h-[13.8rem] md:left-14 md:right-9 md:top-12 md:h-[14.5rem]">
               <p className="text-center text-base font-black text-navySoft">SmartCart Bot</p>
               <div ref={chatScrollRef} className="mt-3 flex-1 space-y-2 overflow-y-auto pr-1 soft-scrollbar">
                 {chatMessages.map((message, index) => (
@@ -556,7 +556,7 @@ export function ShoppingSection() {
           </motion.div>
         )}
         <button type="button" aria-label="Mở chatbot SmartCart" onClick={toggleChatBubble}>
-          <BunnyMascot className="h-56 w-56 scale-105 xl:h-60 xl:w-60 xl:scale-110" cart={false} />
+          <BunnyMascot className="h-32 w-32 scale-105 sm:h-40 sm:w-40 md:h-56 md:w-56 xl:h-60 xl:w-60 xl:scale-110" cart={false} />
         </button>
       </motion.div>
       <ProductDetailModal product={selectedProduct} open={Boolean(selectedProduct)} onClose={() => setSelectedProduct(null)} />
